@@ -7,6 +7,7 @@
 
 using namespace std;
 
+//Determine if the sphere object is being hit by a ray.
 double hit_sphere(const point3& center, double radius, const ray& r) {
 	vec3 oc = r.origin() - center;
 	auto a = r.direction().length_squared();
@@ -57,14 +58,18 @@ int main() {
 	ofstream outfile;
 
 	// Render
-
+	
+	//Create and open the Output file.
 	outfile.open("outfile.ppm");
 
+	//Create image width and height, and record it into the outfile.
 	cout << "P3\n" << image_width << ' ' << image_height << "\n255\n";
 	outfile << "P3\n" << image_width << ' ' << image_height << "\n255\n";
-
+	//Render X axis of pixels.
 	for (int j = image_height - 1; j >= 0; --j) {
+		//shows how many lines in the image have left to be rendered.
 		std::cerr << "\rScanlines remaining: " << j << ' ' << std::flush;
+		//Render Y axis of pixels.
 		for (int i = 0; i < image_width; ++i) {
 			auto u = double(i) / (image_width - 1);
 			auto v = double(j) / (image_height - 1);

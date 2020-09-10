@@ -23,4 +23,4 @@ public:
 	vec3 dir;
 };
 
-#endif#pragma once
+#endif
