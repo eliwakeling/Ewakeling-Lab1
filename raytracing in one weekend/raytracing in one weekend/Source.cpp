@@ -34,18 +34,43 @@ color ray_color(const ray& r, const hittable& world) {
 
 int main() {
 
+	double size, posX, posY;
+	//Set size of sphere
+	cout << "Please state a size for your sphere, from 0.1 to 1." << endl;
+
+	cin >> size;
+
+	while (size < 0.1 || size > 1) {
+		cout << "Invalid size." << endl;
+		cin >> size;
+	}
+	// Set Horizontal position.
+	cout << "What position do you want your sphere to be on the X axis from -1.0 to 1.0? 0 is center." << endl;
+	cin >> posX;
+	while (posX < -1 || posX > 1) {
+		cout << "Invalid size." << endl;
+		cin >> posX;
+	}
+	// Set Vertical Position.
+	// Set Vertical Position.
+	cout << "What position do you want your sphere to be on the Y axis? 0 is center." << endl;
+	cin >> posY;
+	while (posY < -1 || posY > 1) {
+		cout << "Invalid size." << endl;
+		cin >> posY;
+	}
+
 	// Image
 	const auto aspect_ratio = 16.0 / 9.0;
 	const int image_width = 400;
 	const int image_height = static_cast<int>(image_width / aspect_ratio);
 
-	// World
+	// Creates objects within the World
 	hittable_list world;
-	world.add(make_shared<sphere>(point3(0, 0, -1), 0.5));
+	world.add(make_shared<sphere>(point3(posX, posY, -1), size));
 	world.add(make_shared<sphere>(point3(0, -100.5, -1), 100));
 
-	// Camera
-
+	// Sets where the Camera is in the world.
 	auto viewport_height = 2.0;
 	auto viewport_width = aspect_ratio * viewport_height;
 	auto focal_length = 1.0;
@@ -57,7 +82,7 @@ int main() {
 
 	ofstream outfile;
 
-	// Render
+	// Renders the Object in the form of a PPM file.
 	
 	//Create and open the Output file.
 	outfile.open("outfile.ppm");

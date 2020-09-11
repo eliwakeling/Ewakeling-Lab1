@@ -1,3 +1,5 @@
+// Code implemented from here : https://raytracing.github.io/books/RayTracingInOneWeekend.html
+
 #pragma once
 #ifndef RTWEEKEND_H
 #define RTWEEKEND_H
@@ -8,13 +10,13 @@
 #include <memory>
 
 
-// Usings
+// Standards being used.
 
 using std::shared_ptr;
 using std::make_shared;
 using std::sqrt;
 
-// Constants
+// Constant doubles, infinites and irrational numbers.
 
 const double infinity = std::numeric_limits<double>::infinity();
 const double pi = 3.1415926535897932385;

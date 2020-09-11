@@ -1,3 +1,5 @@
+// Code implemented from here : https://raytracing.github.io/books/RayTracingInOneWeekend.html
+
 #pragma once
 #ifndef HITTABLE_LIST_H
 #define HITTABLE_LIST_H
@@ -9,7 +11,7 @@
 
 using std::shared_ptr;
 using std::make_shared;
-
+//A list of HITTABLE objects that rays can intersect with.
 class hittable_list : public hittable {
 public:
 	hittable_list() {}
@@ -25,6 +27,7 @@ public:
 	std::vector<shared_ptr<hittable>> objects;
 };
 
+//Determines if objects on the list are hit by Rays.
 bool hittable_list::hit(const ray& r, double t_min, double t_max, hit_record& rec) const {
 	hit_record temp_rec;
 	bool hit_anything = false;

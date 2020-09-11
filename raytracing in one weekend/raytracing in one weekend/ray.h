@@ -1,9 +1,12 @@
+// Code implemented from here : https://raytracing.github.io/books/RayTracingInOneWeekend.html
+
 #pragma once
 #ifndef RAY_H
 #define RAY_H
 
 #include "vec3.h"
 
+//Create a Ray Class, I see it as a "Ray of Light" that bounces off of objects to make it visible to the "Camera's Eye".
 class ray {
 public:
 	ray() {}

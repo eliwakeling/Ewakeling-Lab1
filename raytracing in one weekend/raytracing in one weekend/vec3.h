@@ -1,3 +1,5 @@
+// Code implemented from here : https://raytracing.github.io/books/RayTracingInOneWeekend.html
+
 #pragma once
 #include <iostream>
 #include <iomanip>
